@@ -1,0 +1,21 @@
+{
+  "name": "CPI Token",
+  "symbol": "CPI",
+  "type": "ERC20",
+  "decimals": 18,
+  "description": "CPI Token is the native asset of the ConsPIndo ecosystem, supporting community-driven social and economic programs.",
+  "website": "https://conspindo.org",
+  "explorer": "https://sepolia.etherscan.io/token/0x937fCf7A4aAfb78B2CeB23CbB3Ba124AaFd453C8",
+  "status": "active",
+  "id": "0x937fCf7A4aAfb78B2CeB23CbB3Ba124AaFd453C8",
+  "links": [
+    {
+      "name": "github",
+      "url": "https://github.com/Evanadua"
+    },
+    {
+      "name": "twitter",
+      "url": "https://x.com/conspindo"
+    }
+  ]
+}
