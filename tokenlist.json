@@ -1,0 +1,25 @@
+{
+  "name": "ConsPIndo Token List",
+  "logoURI": "https://evanadua.github.io/assets/blockchains/ethereum/assets/0x937fCf7A4aAfb78B2CeB23CbB3Ba124AaFd453C8/CPI_logo_256.png",
+  "keywords": ["conspindo", "cpi", "utility", "defi"],
+  "timestamp": "2025-10-30T10:00:00+07:00",
+  "tokens": [
+    {
+      "chainId": 1,
+      "address": "0x937fCf7A4aAfb78B2CeB23CbB3Ba124AaFd453C8",
+      "name": "CPI Token",
+      "symbol": "CPI",
+      "decimals": 18,
+      "logoURI": "https://evanadua.github.io/assets/blockchains/ethereum/assets/0x937fCf7A4aAfb78B2CeB23CbB3Ba124AaFd453C8/CPI_logo_256.png",
+      "description": "CPI Token is a utility token developed by ConsPIndo for decentralized projects and asset tokenization.",
+      "website": "https://evanadua.github.io",
+      "explorer": "https://etherscan.io/token/0x937fCf7A4aAfb78B2CeB23CbB3Ba124AaFd453C8",
+      "tags": ["utility-token", "defi", "cpi-project"]
+    }
+  ],
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  }
+}
