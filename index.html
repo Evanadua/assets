@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPI Token | Add to Wallet</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #000000, #3b2b00);
+      color: #f1e9c2;
+      text-align: center;
+      padding: 40px 20px;
+      margin: 0;
+    }
+    img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid gold;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+      margin-top: 40px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-top: 20px;
+    }
+    p {
+      font-size: 16px;
+      color: #ddd;
+      margin-bottom: 30px;
+    }
+    .btn {
+      display: inline-block;
+      background-color: gold;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      margin: 10px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #f5d76e;
+      transform: scale(1.05);
+    }
+    .trust-info {
+      display: none;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 25px;
+    }
+    footer {
+      margin-top: 60px;
+      font-size: 13px;
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="https://evanadua.github.io/assets/blockchains/ethereum/assets/0x937fCf7A4aAfb78B2CeB23CbB3Ba124AaFd453C8/CPI_logo_256.png" alt="CPI Token Logo">
+
+  <h1>CPI Token (CPI)</h1>
+  <p>Pilih wallet Anda untuk menambahkan token CPI secara otomatis.</p>
+
+  <button class="btn" onclick="addToMetaMask()">🦊 Tambahkan ke MetaMask</button>
+  <button class="btn" onclick="addToTrustWallet()">💎 Tambahkan ke TrustWallet</button>
+
+  <div id="trustWallet" class="trust-info">
+    <h3>Tambahkan CPI ke TrustWallet</h3>
+    <p>Scan QR atau salin alamat kontrak di bawah:</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=0x937fCf7A4aAfb78B2CeB23CbB3Ba124AaFd453C8" alt="QR Code">
+    <p style="font-family:monospace;background:#222;padding:8px;border-radius:8px;">
+      0x937fCf7A4aAfb78B2CeB23CbB3Ba124AaFd453C8
+    </p>
+    <small>Tambahkan secara manual di TrustWallet dengan memilih "Add Custom Token".</small>
+  </div>
+
+  <footer>
+    <p>© 2025 ConsPIndo • CPI Token on Ethereum Sepolia</p>
+  </footer>
+
+  <script>
+    const tokenAddress = "0x937fCf7A4aAfb78B2CeB23CbB3Ba124AaFd453C8";
+    const tokenSymbol = "CPI";
+    const tokenDecimals = 18;
+    const tokenImage = "https://evanadua.github.io/assets/blockchains/ethereum/assets/0x937fCf7A4aAfb78B2CeB23CbB3Ba124AaFd453C8/CPI_logo_256.png";
+
+    async function addToMetaMask() {
+      // ✅ Deteksi browser desktop (ada ekstensi MetaMask)
+      if (window.ethereum && window.ethereum.isMetaMask) {
+        try {
+          const wasAdded = await window.ethereum.request({
+            method: 'wallet_watchAsset',
+            params: {
+              type: 'ERC20',
+              options: {
+                address: tokenAddress,
+                symbol: tokenSymbol,
+                decimals: tokenDecimals,
+                image: tokenImage
+              },
+            },
+          });
+          if (wasAdded) alert("✅ Token CPI berhasil ditambahkan ke MetaMask!");
+          else alert("❌ Gagal menambahkan token CPI.");
+        } catch (error) {
+          console.error(error);
+          alert("Terjadi kesalahan saat menambahkan token CPI.");
+        }
+      } else {
+        // ✅ Untuk pengguna mobile Android/iOS (tidak ada ekstensi)
+        const metamaskDeepLink = `https://metamask.app.link/add-token?address=${tokenAddress}&symbol=${tokenSymbol}&decimals=${tokenDecimals}&image=${encodeURIComponent(tokenImage)}`;
+        window.location.href = metamaskDeepLink;
+      }
+    }
+
+    function addToTrustWallet() {
+      // TrustWallet DeepLink jika mendukung
+      const trustDeepLink = `https://link.trustwallet.com/add_asset?asset=c:${tokenAddress}`;
+      // Buka deep link, jika gagal tampilkan manual QR
+      window.location.href = trustDeepLink;
+      setTimeout(() => {
+        document.getElementById("trustWallet").style.display = "block";
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
